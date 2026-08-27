@@ -11,14 +11,42 @@
 
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f7fa;
-        color: #1a1a1a;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: radial-gradient(circle at 20% 20%, #dff4ff 0%, #eef2ff 45%, #f7f7ff 100%);
+        color: #102037;
+        overflow-x: hidden;
       }
 
       main {
         min-height: 100vh;
         padding: 2rem;
+        position: relative;
+      }
+
+      main::before,
+      main::after {
+        content: "";
+        position: fixed;
+        z-index: -1;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        filter: blur(18px);
+        opacity: 0.45;
+        animation: drift 14s ease-in-out infinite alternate;
+      }
+
+      main::before {
+        top: -120px;
+        left: -90px;
+        background: linear-gradient(135deg, #59d4ff, #4c6fff);
+      }
+
+      main::after {
+        bottom: -140px;
+        right: -100px;
+        background: linear-gradient(135deg, #78e0b8, #57a4ff);
+        animation-delay: 1.5s;
       }
 
       .content {
@@ -31,20 +59,69 @@
       .card {
         max-width: 640px;
         width: 100%;
-        background: #ffffff;
-        border-radius: 12px;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(245, 249, 255, 0.88));
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(6px);
+        border-radius: 16px;
         padding: 2rem;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 16px 38px rgba(44, 74, 132, 0.16);
         text-align: center;
+        transform: translateY(24px);
+        opacity: 0;
+        animation: reveal 700ms ease forwards;
+        transition: transform 260ms ease, box-shadow 260ms ease;
+      }
+
+      .card:nth-child(2) {
+        animation-delay: 160ms;
+      }
+
+      .card:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 20px 44px rgba(33, 69, 135, 0.22);
       }
 
       h1 {
         margin-top: 0;
-        font-size: 2rem;
+        margin-bottom: 0.35rem;
+        font-size: clamp(2rem, 4vw, 2.6rem);
+        color: #0b1f3a;
+        letter-spacing: 0.01em;
+      }
+
+      h2 {
+        margin-top: 0;
+        color: #16345a;
+      }
+
+      .subtitle {
+        margin-top: 0;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #2f5d9a;
       }
 
       p {
         line-height: 1.6;
+        color: #1d3557;
+      }
+
+      @keyframes reveal {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes drift {
+        from {
+          transform: translateY(0) translateX(0) scale(1);
+        }
+        to {
+          transform: translateY(24px) translateX(16px) scale(1.07);
+        }
       }
 
     </style>
@@ -54,6 +131,7 @@
       <div class="content">
         <section class="card">
           <h1>IDAF Chemie &amp; Geschichte</h1>
+          <p class="subtitle">Interdisciplinary Project</p>
           <p>
             This project explores chemistry and history together through the
             development of an energy cell experiment and its link to the
