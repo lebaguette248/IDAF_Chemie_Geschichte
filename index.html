@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Falcon GT - Landing Page</title>
+    <title>IDAF Chemie &amp; Geschichte</title>
     <style>
       :root {
         color-scheme: light;
@@ -18,9 +18,14 @@
 
       main {
         min-height: 100vh;
-        display: grid;
-        place-items: center;
         padding: 2rem;
+      }
+
+      .content {
+        max-width: 760px;
+        margin: 0 auto;
+        display: grid;
+        gap: 1.5rem;
       }
 
       .card {
@@ -42,28 +47,37 @@
         line-height: 1.6;
       }
 
-      .cta {
-        display: inline-block;
-        margin-top: 1rem;
-        padding: 0.75rem 1.25rem;
-        border-radius: 999px;
-        background: #0b63f3;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 700;
-      }
     </style>
   </head>
   <body>
     <main>
-      <section class="card">
-        <h1>Falcon GT</h1>
-        <p>
-          A simple landing page for a modern sports car. Clean design, powerful
-          performance, and ready for the road.
-        </p>
-        <a class="cta" href="#">Discover the Falcon GT</a>
-      </section>
+      <div class="content">
+        <section class="card">
+          <h1>IDAF Chemie &amp; Geschichte</h1>
+          <p>
+            This project explores chemistry and history together through the
+            development of an energy cell experiment and its link to the
+            evolution of electric vehicles.
+          </p>
+        </section>
+
+        <section class="card" id="about">
+          <h2>About Our Group and Goal</h2>
+          <p>
+            We are a group consisting of Fabian, Nicky, Levin, and Marin.
+          </p>
+          <p>
+            For our IDAF (Interdisziplinarische Allgemeine Facharbeit) with the
+            theme chemistry and history, we first investigated the chemical
+            reaction in an energy cell we created using steel wool, dense
+            saltwater, and nails while passing energy through it.
+          </p>
+          <p>
+            This led us to the topic of historical electric cars and what has
+            changed over time culturally, historically, and chemically.
+          </p>
+        </section>
+      </div>
     </main>
   </body>
 </html>
