@@ -125,6 +125,7 @@
         display: grid;
         gap: 1rem;
         padding-left: 2.2rem;
+        animation: timeline-sway 4.2s ease-in-out infinite;
       }
 
       .timeline::before {
@@ -205,6 +206,16 @@
         }
         to {
           transform: translateY(24px) translateX(16px) scale(1.07);
+        }
+      }
+
+      @keyframes timeline-sway {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(12px);
         }
       }
 
