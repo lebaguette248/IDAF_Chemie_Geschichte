@@ -108,6 +108,68 @@
         color: #1d3557;
       }
 
+      .turning-points {
+        text-align: left;
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      .turning-points li {
+        margin-bottom: 0.45rem;
+        color: #16345a;
+      }
+
+      .timeline {
+        position: relative;
+        margin-top: 1.2rem;
+        display: grid;
+        gap: 1rem;
+        padding-left: 2.2rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0.15rem;
+        bottom: 0.15rem;
+        left: 0.78rem;
+        width: 3px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #57a4ff, #3f6dd2);
+      }
+
+      .timeline-item {
+        position: relative;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(93, 130, 190, 0.32);
+        border-radius: 12px;
+        padding: 0.9rem 1rem;
+        box-shadow: 0 8px 20px rgba(34, 62, 110, 0.12);
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -1.82rem;
+        top: 1.02rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        border: 2px solid #2e67c4;
+        background: #f7fbff;
+        box-shadow: 0 0 0 4px rgba(87, 164, 255, 0.2);
+      }
+
+      .timeline-item h3 {
+        margin: 0;
+        font-size: 1.02rem;
+        color: #112d51;
+      }
+
+      .timeline-item p {
+        margin: 0.55rem 0 0;
+      }
+
       footer {
         margin-top: 2rem;
         padding: 1.5rem 2rem 2rem;
@@ -190,6 +252,87 @@
             chain from electricity to hydrogen and back to electricity is less
             efficient than charging a battery-electric car directly.
           </p>
+        </section>
+
+        <section class="card" id="electric-hydrogen-history">
+          <h2>Major Turning Points in Electric &amp; Hydrogen Car History</h2>
+          <ul class="turning-points">
+            <li>1830s: First experimental electric vehicles appear in Europe.</li>
+            <li>1890s: Electric city cars and taxis become a serious transport option.</li>
+            <li>1908–1920s: Cheap gasoline and mass production push electric cars out of the market.</li>
+            <li>1970s: Oil crises and pollution concerns restart electric and hydrogen research.</li>
+            <li>2008: Modern battery-electric performance cars prove long-range EVs can compete.</li>
+            <li>2014 onward: Fuel-cell cars enter real markets, but infrastructure remains limited.</li>
+          </ul>
+
+          <div class="timeline" aria-label="Vertical timeline of major milestones">
+            <article class="timeline-item">
+              <h3>1835 — Early Electric Prototypes</h3>
+              <p>
+                Inventors in the 1830s built some of the first battery-powered
+                road vehicles, proving that electric movement was technically
+                possible. These machines were slow and heavy, and their batteries
+                could not be recharged in practical ways. Even so, this period
+                introduced the core idea of clean, quiet propulsion without direct
+                combustion.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>1897 — Electric Taxis in Urban Transport</h3>
+              <p>
+                At the end of the 19th century, electric taxis operated in cities
+                like New York and London. Drivers liked them because they were
+                easier to start and cleaner than early gasoline cars. This was the
+                first time electric vehicles scaled as a visible public transport
+                theme rather than a laboratory experiment.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>1908 — Model T Era and the Decline of EVs</h3>
+              <p>
+                Ford's mass-produced Model T dramatically lowered gasoline car
+                prices and changed mobility economics. At the same time, cheap oil
+                and expanding fuel networks made long-distance travel much easier
+                for combustion engines. Electric cars could not keep up in range,
+                speed, or cost, so they largely disappeared from mainstream use.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>1973 — Oil Crisis and New Energy Thinking</h3>
+              <p>
+                The oil shocks of the 1970s exposed how fragile dependence on
+                petroleum could be. Governments, universities, and car companies
+                restarted research programs for electric drivetrains and hydrogen
+                fuel concepts. This turning point connected transport directly to
+                energy security and environmental policy debates.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>2008 — Lithium-Ion Breakthrough in Road Cars</h3>
+              <p>
+                Modern lithium-ion battery systems enabled electric cars to deliver
+                both practical range and strong performance. The Tesla Roadster
+                became a global symbol that EVs could be desirable, not just
+                experimental. This shifted public perception and forced large
+                manufacturers to invest seriously in full battery-electric models.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>2014 — Fuel-Cell Cars Reach Customers</h3>
+              <p>
+                Vehicles such as the Toyota Mirai showed that hydrogen fuel-cell
+                cars could be sold to real customers with quick refueling and
+                water-only tailpipe emissions. The technology proved functional,
+                especially for users needing fast refills. However, high vehicle
+                costs and sparse hydrogen stations still limit widespread adoption.
+              </p>
+            </article>
+          </div>
         </section>
       </div>
     </main>
