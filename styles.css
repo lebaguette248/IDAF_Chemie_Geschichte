@@ -133,7 +133,6 @@ p {
   display: grid;
   gap: 1rem;
   padding-left: 2.2rem;
-  animation: timeline-sway 4.2s ease-in-out infinite;
 }
 
 .timeline::before {
@@ -275,12 +274,4 @@ footer p {
   }
 }
 
-@keyframes timeline-sway {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(12px);
-  }
-}
+
