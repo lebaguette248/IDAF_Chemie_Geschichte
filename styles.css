@@ -21,6 +21,7 @@ body {
 
 .left-pane {
   min-width: 0;
+  margin-right: 50%;
 }
 
 main {
@@ -196,7 +197,11 @@ p {
 }
 
 .right-pane {
-  position: relative;
+  position: fixed;
+  inset: 0 0 0 50%;
+  width: auto;
+  height: 100vh;
+  z-index: 1;
   background: linear-gradient(165deg, #0e1b33, #11284a);
   display: flex;
   flex-direction: column;
@@ -215,6 +220,9 @@ p {
 #three-canvas {
   flex: 1;
   min-height: 320px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
 #three-canvas canvas {
@@ -246,15 +254,6 @@ footer p {
 }
 
 @media (max-width: 980px) {
-  .page-layout {
-    flex-direction: column;
-  }
-
-  .left-pane,
-  .right-pane {
-    width: 100%;
-  }
-
   #three-canvas {
     min-height: 420px;
   }
