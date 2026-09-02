@@ -160,6 +160,23 @@
         border-radius: 12px;
         padding: 0.9rem 1rem;
         box-shadow: 0 8px 20px rgba(34, 62, 110, 0.12);
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .timeline-item:hover {
+        transform: translateX(3px);
+        border-color: rgba(57, 111, 211, 0.65);
+      }
+
+      .timeline-item:focus-visible {
+        outline: 3px solid rgba(87, 164, 255, 0.5);
+        outline-offset: 2px;
+      }
+
+      .timeline-item.is-active {
+        border-color: rgba(57, 111, 211, 0.9);
+        box-shadow: 0 10px 24px rgba(34, 62, 110, 0.2);
       }
 
       .timeline-item::before {
@@ -418,7 +435,7 @@
       </div>
 
       <aside class="right-pane" aria-label="Three.js cube panel">
-        <div class="cube-label">Interactive Cube</div>
+        <div class="cube-label" id="object-label">Interactive Cube</div>
         <div id="three-canvas"></div>
       </aside>
     </div>
@@ -427,6 +444,8 @@
       import * as THREE from "https://unpkg.com/three@0.167.1/build/three.module.js";
 
       const container = document.getElementById("three-canvas");
+      const objectLabel = document.getElementById("object-label");
+      const timelineItems = [...document.querySelectorAll(".timeline-item")];
       const scene = new THREE.Scene();
       scene.background = new THREE.Color(0x10213f);
 
@@ -437,10 +456,50 @@
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       container.appendChild(renderer.domElement);
 
-      const geometry = new THREE.BoxGeometry(1, 1, 1);
-      const material = new THREE.MeshStandardMaterial({ color: 0x57a4ff });
-      const cube = new THREE.Mesh(geometry, material);
-      scene.add(cube);
+      const baseMaterial = new THREE.MeshStandardMaterial({ color: 0x57a4ff });
+      const objectTypes = ["cube", "ball", "pyramid"];
+      const objectScale = 1 / 3;
+      let currentObject = null;
+
+      function createObject(type) {
+        if (type === "ball") {
+          return new THREE.Mesh(
+            new THREE.SphereGeometry(0.62, 32, 24),
+            baseMaterial.clone()
+          );
+        }
+
+        if (type === "pyramid") {
+          return new THREE.Mesh(
+            new THREE.ConeGeometry(0.78, 1, 4),
+            baseMaterial.clone()
+          );
+        }
+
+        return new THREE.Mesh(
+          new THREE.BoxGeometry(1, 1, 1),
+          baseMaterial.clone()
+        );
+      }
+
+      function setActiveTimelineItem(activeIndex) {
+        timelineItems.forEach((item, index) => {
+          item.classList.toggle("is-active", index === activeIndex);
+        });
+      }
+
+      function setObject(type) {
+        if (currentObject) {
+          scene.remove(currentObject);
+          currentObject.geometry.dispose();
+          currentObject.material.dispose();
+        }
+
+        currentObject = createObject(type);
+        currentObject.scale.setScalar(objectScale);
+        scene.add(currentObject);
+        objectLabel.textContent = `Interactive ${type[0].toUpperCase()}${type.slice(1)}`;
+      }
 
       const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
       scene.add(ambientLight);
@@ -459,12 +518,34 @@
 
       function animate() {
         requestAnimationFrame(animate);
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.013;
+        if (currentObject) {
+          currentObject.rotation.x += 0.01;
+          currentObject.rotation.y += 0.013;
+        }
         renderer.render(scene, camera);
       }
 
+      timelineItems.forEach((item, index) => {
+        item.setAttribute("role", "button");
+        item.setAttribute("tabindex", "0");
+
+        const activateItem = () => {
+          setObject(objectTypes[index % objectTypes.length]);
+          setActiveTimelineItem(index);
+        };
+
+        item.addEventListener("click", activateItem);
+        item.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            activateItem();
+          }
+        });
+      });
+
       window.addEventListener("resize", resize);
+      setObject("cube");
+      setActiveTimelineItem(0);
       resize();
       animate();
     </script>
