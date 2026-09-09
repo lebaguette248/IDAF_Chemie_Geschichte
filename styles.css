@@ -584,3 +584,8 @@ footer p {
     min-height: 190px;
   }
 }
+
+.caption {
+  font-style: italic;
+  padding-bottom: 0.7rem;
+}
