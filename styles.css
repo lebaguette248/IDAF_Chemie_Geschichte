@@ -302,6 +302,28 @@ p {
   color: var(--ink-soft);
 }
 
+.question {
+  margin: 0 0 1.4rem;
+  padding: 1rem 1.4rem;
+  border-left: 4px solid transparent;
+  border-image: linear-gradient(180deg, var(--pastel-blue), var(--pastel-purple)) 1;
+  background: linear-gradient(120deg, rgba(168, 212, 255, 0.16), rgba(200, 182, 242, 0.16));
+  border-radius: 10px;
+  font-size: 1.12rem;
+  font-style: italic;
+  color: #16213e;
+  text-align: left;
+}
+
+.note {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(140, 160, 220, 0.4);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: #4b7ab0;
+}
+
 .turning-points {
   text-align: left;
   margin: 0;
