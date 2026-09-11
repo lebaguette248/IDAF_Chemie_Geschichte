@@ -1,2 +1,2 @@
 # IDAF_Chemie_Geschichte
-Das IDAF Repository für die GUP/Chemie Webseite
+Das IDAF-Repository für die GuP-/Chemie-Webseite
