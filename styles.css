@@ -636,3 +636,7 @@ footer p {
   font-size: 22px;
   line-height: 1;
 }
+
+.card > p:not(.subtitle):not(.caption):not(.centered) {
+  text-align: left;
+}
