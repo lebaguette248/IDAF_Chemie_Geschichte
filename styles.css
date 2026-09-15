@@ -640,3 +640,8 @@ footer p {
 .card > p:not(.subtitle):not(.caption):not(.centered) {
   text-align: left;
 }
+
+.left{
+  text-align: left;
+  padding-left: 0.5cm;
+}
